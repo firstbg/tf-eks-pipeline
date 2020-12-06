@@ -8,21 +8,6 @@ variable "organizations_shared_account_id" {
   description = "The Organizations Account ID for the Shared Services account"
 }
 
-variable "organizations_dev_account_id" {
-  type        = string
-  description = "The Organizations Account ID for the Dev account"
-}
-
-variable "organizations_stg_account_id" {
-  type        = string
-  description = "The Organizations Account ID for the Staging account"
-}
-
-variable "organizations_prod_account_id" {
-  type        = string
-  description = "The Organizations Account ID for the Production account"
-}
-
 variable "vpc_tags" {
   type        = map(string)
   description = "Map of tags to assign to vpc resource"

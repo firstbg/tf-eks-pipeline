@@ -55,9 +55,10 @@ module "eks_master_security_group" {
 module "eks_master_instances" {
   source = "../../../modules/aws/compute/eks/cluster"
 
-  eks_cluster_resource_prefix   = var.eks_cluster_resource_prefix
-  environment_name              = var.environment_name
-  eks_cluster_tier_name         = var.eks_master_tier_name
+  eks_cluster_resource_prefix = var.eks_cluster_resource_prefix
+  environment_name            = var.environment_name
+  eks_cluster_tier_name       = var.eks_master_tier_name
+  # id = module.eks_cluster_
   role_arn                      = module.eks_master_iam_role.arn
   security_group_ids            = list(module.eks_master_security_group.id)
   eks_cluster_subnet_ids        = data.aws_subnet_ids.private.ids
