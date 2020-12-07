@@ -1,12 +1,10 @@
-provider "aws" {
-  version = "~> 2.0"
-  region  = var.common_region
-}
+# provider "aws" {
+#   region  = var.common_region
+# }
 
 provider "aws" {
-  alias   = "shared"
-  version = "~> 2.0"
-  region  = var.common_region
+  alias  = "shared"
+  region = var.common_region
   assume_role {
     role_arn = format(
       "%s%s%s%s",
