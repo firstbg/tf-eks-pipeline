@@ -1,3 +1,8 @@
+variable "common_region" {
+  type        = string
+  description = "The Region where to create resources"
+}
+
 variable "account_id" {
   type        = string
   description = "The Organizations Account ID for the account."
