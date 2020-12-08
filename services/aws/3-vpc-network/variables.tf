@@ -1,11 +1,11 @@
 variable "common_region" {
   type        = string
-  description = "The Region where to create resources"
+  description = "Region where to create resources"
 }
 
 variable "organizations_shared_account_id" {
   type        = string
-  description = "The Organizations Account ID for the Shared Services account"
+  description = "Organizations Account ID for the Shared Services account"
 }
 
 variable "vpc_tags" {
@@ -45,7 +45,7 @@ variable "public_subnet_tags" {
 
 variable "public_subnet_tier_name" {
   type        = string
-  description = "The tier name convention for public subnet object."
+  description = "Tier name for public subnet object"
 }
 
 variable "private_subnet_tags" {
@@ -55,7 +55,7 @@ variable "private_subnet_tags" {
 
 variable "private_subnet_tier_name" {
   type        = string
-  description = "The tier name convention for private subnet object"
+  description = "Tier name for private subnet object"
 }
 
 variable "eks_cluster_resource_prefix" {
@@ -65,7 +65,7 @@ variable "eks_cluster_resource_prefix" {
 
 variable "eks_cluster_tier_name" {
   type        = string
-  description = "The tier name convention for EKS Cluster object"
+  description = "Tier name convention for EKS Cluster object"
 }
 
 variable "data_subnet_tags" {
@@ -75,7 +75,7 @@ variable "data_subnet_tags" {
 
 variable "data_subnet_tier_name" {
   type        = string
-  description = "The tier name convention for data subnet object"
+  description = "Tier name convention for data subnet object"
 }
 
 variable "db_subnet_group_resource_prefix" {
@@ -100,12 +100,12 @@ variable "network_acl_resource_prefix" {
 
 variable "default_network_acl_tier_name" {
   type        = string
-  description = "The tier name convention for default Network ACL object"
+  description = "Tier name for default Network ACL object"
 }
 
 variable "public_network_acl_tags" {
   type        = map(string)
-  description = "Map of tags to assign to public Network ACL."
+  description = "Map of tags to assign to public Network ACL"
 }
 
 variable "private_network_acl_tags" {
@@ -140,7 +140,7 @@ variable "nat_eip_resource_prefix" {
 
 variable "nat_eip_tier_name" {
   type        = string
-  description = "The tier name convention for NAT Elastic IP"
+  description = "Tier name for NAT Elastic IP"
 }
 
 variable "nat_gateway_tags" {
@@ -163,427 +163,382 @@ variable "route_table_resource_prefix" {
   description = "Prefix for Route Table"
 }
 
-variable "transit_gateway_tags" {
-  type        = map(string)
-  description = "A mapping of tags to assign to Transit Gateway object."
-}
-
-variable "transit_gateway_resource_prefix" {
-  type        = string
-  description = "The prefix name convention for Transit Gateway object."
-}
-
-variable "transit_gateway_vpc_attachment_tags" {
-  type        = map(string)
-  description = "A mapping of tags to assign to Transit Gateway VPC Attachement object."
-}
-
-variable "transit_gateway_vpc_attachment_resource_prefix" {
-  type        = string
-  description = "The prefix name convention for Transit Gateway VPC Attachement object."
-}
-
-variable "transit_gateway_route_table_tags" {
-  type        = map(string)
-  description = "A mapping of tags to assign to Transit Gateway Route Table object."
-}
-
-variable "transit_gateway_route_table_resource_prefix" {
-  type        = string
-  description = "The prefix name convention for Transit Gateway Route Table object."
-}
-
-variable "ram_resource_share_tags" {
-  type        = map(string)
-  description = "A mapping of tags to assign to RAM Resource Share object."
-}
-
-variable "ram_resource_share_resource_prefix" {
-  type        = string
-  description = "The prefix name convention for RAM Resource Share object."
-}
-
 variable "shared_account_environment_name" {
   type        = string
-  description = "The reference name of the Shared environment."
+  description = "Name of the Shared environment"
 }
 
 variable "shared_account_cidr_block" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "CIDR block for the VPC"
 }
 
 variable "shared_account_enable_dns_support" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS support in the VPC."
+  description = "Enable/Disable DNS support in the VPC: true/false"
 }
 
 variable "shared_account_enable_dns_hostnames" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS hostnames in the VPC."
+  description = "Enable/Disable DNS hostnames in the VPC: true/false"
 }
 
 variable "shared_account_enable_dhcp_options" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "DHCP Options for the VPC"
 }
 
 variable "shared_account_dhcp_options_domain_name" {
   type        = string
-  description = "The suffix domain name to use by default when resolving non Fully Qualified Domain Names. The search value in the /etc/resolv.conf file."
+  description = "Suffix domain name to use by default when resolving non FQDNs. That is search value in the /etc/resolv.conf"
 }
 
 variable "shared_account_dhcp_options_domain_name_servers" {
   type        = list(string)
-  description = "List of name servers to configure in /etc/resolv.conf. If you want to use the default AWS nameservers you should set this to AmazonProvidedDNS."
+  description = "List of name servers to configure in /etc/resolv.conf. To use default AWS nameservers set this to AmazonProvidedDNS"
 }
 
 variable "shared_account_dhcp_options_ntp_servers" {
   type        = list(string)
-  description = "List of NTP servers to configure."
+  description = "List of NTP servers to configure"
 }
 
 variable "shared_account_public_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create an public subnet."
+  description = "List of VPC subnet CIDRs to create in public subnet"
 }
 
 variable "shared_account_private_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a private subnet."
+  description = "List of VPC subnet CIDRs to create in private subnet"
 }
 
 variable "shared_account_data_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a data subnet."
+  description = "List of VPC subnet CIDRs to create in data subnet"
 }
 
 variable "shared_account_default_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the default Network ACL"
+  description = "List of maps of ingress rules to set for default Network ACL"
 }
 
 variable "shared_account_default_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the default Network ACL"
+  description = "List of maps of egress rules to set for default Network ACL"
 }
 
 variable "shared_account_public_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the public Network ACL"
+  description = "List of maps of ingress rules to set for public Network ACL"
 }
 
 variable "shared_account_public_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the public Network ACL"
+  description = "List of maps of egress rules to set for public Network ACL"
 }
 
 variable "shared_account_private_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the private Network ACL"
+  description = "List of maps of ingress rules to set for private Network ACL"
 }
 
 variable "shared_account_private_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the private Network ACL"
+  description = "List of maps of egress rules to set for private Network ACL"
 }
 
 variable "shared_account_data_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the data Network ACL"
+  description = "List of maps of ingress rules to set for data Network ACL"
 }
 
 variable "shared_account_data_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the data Network ACL"
+  description = "List of maps of egress rules to set for data Network ACL"
 }
 
 variable "dev_account_environment_name" {
   type        = string
-  description = "The reference name of the Development environment."
+  description = "Reference name of Development environment"
 }
 
 variable "dev_account_cidr_block" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "The CIDR block for the VPC"
 }
 
 variable "dev_account_enable_dns_support" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS support in the VPC."
+  description = "Enable/Disable DNS support in the VPC: true/false"
 }
 
 variable "dev_account_enable_dns_hostnames" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS hostnames in the VPC."
+  description = "Enable/Disable DNS hostnames in the VPC: true/false"
 }
 
 variable "dev_account_enable_dhcp_options" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "The CIDR block for the VPC"
 }
 
 variable "dev_account_dhcp_options_domain_name" {
   type        = string
-  description = "The suffix domain name to use by default when resolving non Fully Qualified Domain Names. The search value in the /etc/resolv.conf file."
+  description = "Suffix domain name to use by default when resolving non FQDNs. That is search value in the /etc/resolv.conf"
 }
 
 variable "dev_account_dhcp_options_domain_name_servers" {
   type        = list(string)
-  description = "List of name servers to configure in /etc/resolv.conf. If you want to use the default AWS nameservers you should set this to AmazonProvidedDNS."
+  description = "List of name servers to configure in /etc/resolv.conf. To use default AWS nameservers set this to AmazonProvidedDNS"
 }
 
 variable "dev_account_dhcp_options_ntp_servers" {
   type        = list(string)
-  description = "List of NTP servers to configure."
+  description = "List of NTP servers to configure"
 }
 
 variable "dev_account_public_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create an public subnet."
+  description = "List of VPC subnet CIDRs to create public subnet"
 }
 
 variable "dev_account_private_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a private subnet."
+  description = "List of VPC subnet CIDRs to create private subnet"
 }
 
 variable "dev_account_data_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a data subnet."
+  description = "List of VPC subnet CIDRs to create data subnet"
 }
 
 variable "dev_account_default_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the default Network ACL"
+  description = "List of maps of ingress rules to set for default Network ACL"
 }
 
 variable "dev_account_default_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the default Network ACL"
+  description = "List of maps of egress rules to set for default Network ACL"
 }
 
 variable "dev_account_public_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the public Network ACL"
+  description = "List of maps of ingress rules to set for public Network ACL"
 }
 
 variable "dev_account_public_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the public Network ACL"
+  description = "List of maps of egress rules to set for public Network ACL"
 }
 
 variable "dev_account_private_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the private Network ACL"
+  description = "List of maps of ingress rules to set for private Network ACL"
 }
 
 variable "dev_account_private_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the private Network ACL"
+  description = "List of maps of egress rules to set for private Network ACL"
 }
 
 variable "dev_account_data_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the data Network ACL"
+  description = "List of maps of ingress rules to set for data Network ACL"
 }
 
 variable "dev_account_data_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the data Network ACL"
+  description = "List of maps of egress rules to set for data Network ACL"
 }
 
 variable "stg_account_environment_name" {
   type        = string
-  description = "The reference name of the Staging environment."
+  description = "Reference name of Staging environment"
 }
 
 variable "stg_account_cidr_block" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "The CIDR block for the VPC"
 }
 
 variable "stg_account_enable_dns_support" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS support in the VPC."
+  description = "Enable/Disable DNS support in the VPC: true/false"
 }
 
 variable "stg_account_enable_dns_hostnames" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS hostnames in the VPC."
+  description = "Enable/Disable DNS hostnames in the VPC: true/false"
 }
 
 variable "stg_account_enable_dhcp_options" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "The CIDR block for the VPC"
 }
 
 variable "stg_account_dhcp_options_domain_name" {
   type        = string
-  description = "The suffix domain name to use by default when resolving non Fully Qualified Domain Names. The search value in the /etc/resolv.conf file."
+  description = "Suffix domain name to use by default when resolving non FQDNs. That is search value in the /etc/resolv.conf"
 }
 
 variable "stg_account_dhcp_options_domain_name_servers" {
   type        = list(string)
-  description = "List of name servers to configure in /etc/resolv.conf. If you want to use the default AWS nameservers you should set this to AmazonProvidedDNS."
+  description = "List of name servers to configure in /etc/resolv.conf. To use default AWS nameservers set this to AmazonProvidedDNS"
 }
 
 variable "stg_account_dhcp_options_ntp_servers" {
   type        = list(string)
-  description = "List of NTP servers to configure."
+  description = "List of NTP servers to configure"
 }
 
 variable "stg_account_public_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create an public subnet."
+  description = "List of VPC subnet CIDRs to create in public subnet"
 }
 
 variable "stg_account_private_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a private subnet."
+  description = "List of VPC subnet CIDRs to create private subnet"
 }
 
 variable "stg_account_data_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a data subnet."
+  description = "List of VPC subnet CIDRs to create data subnet"
 }
 
 variable "stg_account_default_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the default Network ACL"
+  description = "List of maps of ingress rules to set for default Network ACL"
 }
 
 variable "stg_account_default_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the default Network ACL"
+  description = "List of maps of egress rules to set for default Network ACL"
 }
 
 variable "stg_account_public_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the public Network ACL"
+  description = "List of maps of ingress rules to set for public Network ACL"
 }
 
 variable "stg_account_public_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the public Network ACL"
+  description = "List of maps of egress rules to set for public Network ACL"
 }
 
 variable "stg_account_private_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the private Network ACL"
+  description = "List of maps of ingress rules to set for private Network ACL"
 }
 
 variable "stg_account_private_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the private Network ACL"
+  description = "List of maps of egress rules to set for private Network ACL"
 }
 
 variable "stg_account_data_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the data Network ACL"
+  description = "List of maps of ingress rules to set for data Network ACL"
 }
 
 variable "stg_account_data_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the data Network ACL"
+  description = "List of maps of egress rules to set for data Network ACL"
 }
 
 variable "prod_account_environment_name" {
   type        = string
-  description = "The reference name of the Production environment."
+  description = "Reference name of Production environment"
 }
 
 variable "prod_account_cidr_block" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "The CIDR block for the VPC"
 }
 
 variable "prod_account_enable_dns_support" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS support in the VPC."
+  description = "Enable/Disable DNS support in the VPC: true/false"
 }
 
 variable "prod_account_enable_dns_hostnames" {
   type        = bool
-  description = "A boolean flag to enable/disable DNS hostnames in the VPC."
+  description = "Enable/Disable DNS hostnames in the VPC: true/false"
 }
 
 variable "prod_account_enable_dhcp_options" {
   type        = string
-  description = "The CIDR block for the VPC."
+  description = "The CIDR block for the VPC"
 }
 
 variable "prod_account_dhcp_options_domain_name" {
   type        = string
-  description = "The suffix domain name to use by default when resolving non Fully Qualified Domain Names. The search value in the /etc/resolv.conf file."
+  description = "Suffix domain name to use by default when resolving non FQDNs. That is search value in the /etc/resolv.conf"
 }
 
 variable "prod_account_dhcp_options_domain_name_servers" {
   type        = list(string)
-  description = "List of name servers to configure in /etc/resolv.conf. If you want to use the default AWS nameservers you should set this to AmazonProvidedDNS."
+  description = "List of name servers to configure in /etc/resolv.conf. To use default AWS nameservers set this to AmazonProvidedDNS"
 }
 
 variable "prod_account_dhcp_options_ntp_servers" {
   type        = list(string)
-  description = "List of NTP servers to configure."
+  description = "List of NTP servers to configure"
 }
 
 variable "prod_account_public_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create an public subnet."
+  description = "List of VPC subnet CIDRs to create public subnet"
 }
 
 variable "prod_account_private_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a private subnet."
+  description = "List of VPC subnet CIDRs to create private subnet"
 }
 
 variable "prod_account_data_subnets" {
   type        = list(string)
-  description = "A list of VPC subnet IDs to create a data subnet."
+  description = "List of VPC subnet CIDRs to create data subnet"
 }
 
 variable "prod_account_default_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the default Network ACL"
+  description = "List of maps of ingress rules to set for default Network ACL"
 }
 
 variable "prod_account_default_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the default Network ACL"
+  description = "List of maps of egress rules to set for default Network ACL"
 }
 
 variable "prod_account_public_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the public Network ACL"
+  description = "List of maps of ingress rules to set for public Network ACL"
 }
 
 variable "prod_account_public_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the public Network ACL"
+  description = "List of maps of egress rules to set for public Network ACL"
 }
 
 variable "prod_account_private_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the private Network ACL"
+  description = "List of maps of ingress rules to set for private Network ACL"
 }
 
 variable "prod_account_private_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the private Network ACL"
+  description = "List of maps of egress rules to set for private Network ACL"
 }
 
 variable "prod_account_data_network_acl_ingress_rules" {
   type        = list(map(string))
-  description = "List of maps of ingress rules to set on the data Network ACL"
+  description = "List of maps of ingress rules to set for data Network ACL"
 }
 
 variable "prod_account_data_network_acl_egress_rules" {
   type        = list(map(string))
-  description = "List of maps of egress rules to set on the data Network ACL"
-}
-
-variable "shared_account_share_transit_gateway" {
-  type        = bool
-  description = "A boolean flag to enable/disable Transit Gateway resource sharing."
+  description = "List of maps of egress rules to set for data Network ACL"
 }

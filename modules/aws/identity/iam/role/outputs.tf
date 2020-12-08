@@ -1,14 +1,14 @@
 output "arn" {
-  description = "The Amazon Resource Name (ARN) specifying the role"
+  description = "ARN of the IAM Role"
   value       = aws_iam_role.this.arn
 }
 
 output "name" {
-  description = "The name of the role"
+  description = "Name of the IAM Role"
   value       = aws_iam_role.this.name
 }
 
 output "id" {
-  description = "The name of the role"
+  description = "ID of the IAM Role"
   value       = aws_iam_role.this.id
 }

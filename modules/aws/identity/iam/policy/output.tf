@@ -1,29 +1,29 @@
 output "id" {
-  description = "The policy's ID."
+  description = "Policy ID"
   value       = aws_iam_policy.this.id
 }
 
 output "arn" {
-  description = "The ARN assigned by AWS to this policy."
+  description = "ARN assigned by AWS to policy"
   value       = aws_iam_policy.this.arn
 }
 
 output "description" {
-  description = "The description of the policy."
+  description = "Description of the policy"
   value       = aws_iam_policy.this.description
 }
 
 output "name" {
-  description = "The name of the policy."
+  description = "Name of the policy"
   value       = aws_iam_policy.this.name
 }
 
 output "path" {
-  description = "The path of the policy in IAM."
+  description = "Path of the policy in IAM"
   value       = aws_iam_policy.this.path
 }
 
 output "policy" {
-  description = "The policy document."
+  description = "Policy document"
   value       = aws_iam_policy.this.policy
 }
