@@ -10,9 +10,8 @@ common_tags = {
   Team      = "myteam"
 }
 
-subnet_resource_prefix   = "net"
-private_subnet_tier_name = "private"
-
+subnet_resource_prefix                     = "net"
+private_subnet_tier_name                   = "private"
 eks_cluster_resource_prefix                = "eks"
 terraform_assume_role_name                 = ""
 iam_policy_resource_prefix                 = "eksiampolicy"

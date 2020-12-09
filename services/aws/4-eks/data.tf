@@ -57,31 +57,3 @@ data "aws_iam_policy" "amazon_ec2_container_registry_ro_policy" {
 data "aws_iam_policy" "amazon_eks_cni_policy" {
   arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
-
-# data "aws_ami" "eks_worker_ami" {
-#   most_recent = true
-#   owners      = ["amazon"]
-#
-#   filter {
-#     name = "name"
-#     values = [
-#       format(
-#         "%s%s%s",
-#         "amazon-eks-node-",
-#         var.eks_cluster_version,
-#         "-v*",
-#       )
-#     ]
-#   }
-#
-#   filter {
-#     name   = "root-device-type"
-#     values = ["ebs"]
-#   }
-# }
-
-# data "aws_iam_role" "eks_worker_service_linked_role" {
-#   count = var.eks_worker_service_linked_role_name != "" ? 1 : 0
-#
-#   name = var.eks_worker_service_linked_role_name
-# }
